@@ -1,3 +1,12 @@
+def fire_type(fire, level):
+    if fire == 'High' and 80 < level <= 125:
+        return True
+    elif fire == 'Medium' and 50 < level <= 80:
+        return True
+    elif fire == 'Low' and 0 < level <= 50:
+        return True
+
+
 command_in = input().split('#')
 available_water = int(input())
 effort = 0
@@ -7,21 +16,10 @@ for f_cell in command_in:
     command = f_cell.split(' = ')
     type_of_fire = command[0]
     fire_level = int(command[1])
-    if type_of_fire == 'High' and 80 < fire_level <= 125:
-        if available_water - fire_level >= 0:
-            available_water -= fire_level
-            effort += fire_level * 0.25
-            put_out_cells.append(fire_level)
-    elif type_of_fire == 'Medium' and 50 < fire_level <= 80:
-        if available_water - fire_level >= 0:
-            available_water -= fire_level
-            effort += fire_level * 0.25
-            put_out_cells.append(fire_level)
-    elif type_of_fire == 'Low' and 0 < fire_level <= 50:
-        if available_water - fire_level >= 0:
-            available_water -= fire_level
-            effort += fire_level * 0.25
-            put_out_cells.append(fire_level)
+    if fire_type(type_of_fire, fire_level) and available_water - fire_level >= 0:
+        available_water -= fire_level
+        effort += fire_level * 0.25
+        put_out_cells.append(fire_level)
 
 print("Cells:")
 for cells in put_out_cells:
