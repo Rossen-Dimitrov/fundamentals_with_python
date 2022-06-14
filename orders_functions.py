@@ -1,15 +1,15 @@
 def total_price():
     drink, quantity = str(input()), float(input())
-    result = None
+    price = 0
     if drink == 'coffee':
-        result = quantity * 1.50
+        price = 1.50
     elif drink == 'water':
-        result = quantity * 1.00
+        price = 1.00
     elif drink == 'coke':
-        result = quantity * 1.40
+        price = 1.40
     elif drink == 'snacks':
-        result = quantity * 2.00
-    return f'{result:.2f}'
+        price = 2.00
+    return f'{price * quantity:.2f}'
 
 
 print(total_price())
