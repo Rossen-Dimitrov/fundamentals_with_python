@@ -1,10 +1,11 @@
 class Storage:
+    storage = []
+
     def __init__(self, capacity: int):
         self.capacity = capacity
-        self.storage = []
 
     def add_product(self, product: str):
-        if not self.capacity == len(self.storage):
+        if self.capacity > len(Storage.storage):
             self.storage.append(product)
 
     def get_products(self):
