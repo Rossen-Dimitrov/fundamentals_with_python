@@ -1,9 +1,9 @@
 class Storage:
-    def __init__(self, capacity):
-        self.capacity = int(capacity)
+    def __init__(self, capacity: int):
+        self.capacity = capacity
         self.storage = []
 
-    def add_product(self, product):
+    def add_product(self, product: str):
         if not self.capacity == len(self.storage):
             self.storage.append(product)
 
