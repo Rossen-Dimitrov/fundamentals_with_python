@@ -4,6 +4,7 @@ def is_wined():
         return True
 
 
+legendary_item = {"shards": "Shadowmourne", "fragments": "Valanyr", "motes": "Dragonwrath"}
 collected_materials = {"shards": 0, "fragments": 0, "motes": 0}
 
 while True:
@@ -20,16 +21,9 @@ while True:
         break
 
 for key, value in collected_materials.items():
-    if value >= 250:
-        if key == "shards":
-            collected_materials[key] -= 250
-            print('Shadowmourne obtained!')
-        if key == "fragments":
-            collected_materials[key] -= 250
-            print('Valanyr obtained!')
-        if key == "motes":
-            collected_materials[key] -= 250
-            print('Dragonwrath obtained!')
+    if value >= 250 and key in legendary_item:
+        collected_materials[key] -= 250
+        print(f'{legendary_item[key]} obtained!')
 
 for key, value in collected_materials.items():
     print(f'{key}: {value}')
